@@ -1,0 +1,131 @@
+/* Asegura que el contenedor ocupe toda la pantalla */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif; /* Fuente empresarial moderna */
+    background-color: #f4f7fa; /* Fondo claro neutro */
+}
+
+/* Wrapper que envuelve toda la estructura */
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+}
+
+/* Barra lateral fija que ocupa toda la altura */
+.sidebar {
+    background-color: #1E3A8A; /* Azul oscuro empresarial */
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    padding-top: 30px; /* Mayor separación superior */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.sidebar .sidebar-header {
+    padding: 20px;
+    color: white;
+    font-size: 22px; /* Título más destacado */
+    text-align: center; /* Centra el texto */
+    font-weight: bold; /* Resalta el título */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Separador más definido */
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+.sidebar ul {
+    padding-left: 0;
+    list-style: none;
+    margin-top: 20px; /* Separación superior en la lista */
+}
+
+.sidebar ul li {
+    margin-bottom: 15px; /* Mayor espacio entre los elementos */
+}
+
+.sidebar ul li a {
+    padding: 15px 20px;
+    display: block;
+    color: white; /* Solo el texto en blanco */
+    background-color: transparent; /* Sin fondo sólido, solo texto */
+    border-radius: 8px; /* Bordes redondeados */
+    text-align: left;
+    transition: all 0.3s ease; /* Transición para suavizar cambios */
+    font-size: 16px; /* Tamaño de texto adecuado */
+    text-decoration: none; /* Eliminar subrayado */
+    letter-spacing: 0.5px; /* Espaciado entre letras */
+    position: relative;
+}
+
+.sidebar ul li a:hover {
+    font-size: 18px; /* Agranda ligeramente la letra al pasar el mouse */
+    color: #f0f2f5; /* Cambia a un blanco más brillante */
+}
+
+.sidebar ul li a:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 80%;
+    width: 5px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover:before {
+    background-color: #f0f2f5; /* Indicador visual en hover */
+}
+
+.sidebar ul li a:active {
+    font-size: 16px; /* Vuelve al tamaño original al hacer clic */
+}
+
+/* Estilo para el contenido principal */
+.content {
+    margin-left: 250px; /* Deja espacio para la barra lateral */
+    padding: 40px; /* Espaciado amplio para el contenido */
+    background-color: #f8f9fa; /* Fondo claro para el contenido */
+    flex-grow: 1;
+    transition: margin-left 0.3s ease;
+}
+
+.content .container-fluid {
+    padding: 30px;
+    background-color: white; /* Fondo de los contenedores */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave pero más visible */
+}
+
+.content h2 {
+    font-size: 28px; /* Tamaño del título más grande */
+    margin-bottom: 20px;
+    font-weight: 700; /* Título más destacado */
+    color: #1E3A8A; /* Azul oscuro para los títulos */
+}
+
+.content p {
+    font-size: 18px; /* Texto más grande para mejorar la lectura */
+    line-height: 1.8; /* Mejora la legibilidad */
+    color: #333; /* Color de texto gris oscuro */
+}
+
+/* Efecto suave en botones dentro del contenido */
+.btn-primary {
+    background-color: #1E3A8A;
+    border-color: #1E3A8A;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #16345a; /* Azul más oscuro en hover */
+    transform: translateY(-2px); /* Efecto de levantamiento en hover */
+}

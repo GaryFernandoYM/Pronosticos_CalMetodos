@@ -1,0 +1,58 @@
+<!-- Modal de Información: Método de la Media -->
+<div class="modal fade" id="modalInfo" tabindex="-1" aria-labelledby="modalInfoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg"> <!-- Modal más grande para acomodar mejor el contenido -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalInfoLabel">Método de la Media: Información Detallada</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Introducción -->
+                <p><strong>¿Qué es el Método de la Media?</strong></p>
+                <p>El <strong>Método de la Media</strong> es una técnica de pronóstico simple que utiliza el promedio de los valores pasados para predecir el valor futuro. Este método es útil cuando los datos históricos son estables y no presentan una tendencia clara ni estacionalidad significativa.</p>
+                
+                <!-- Imagen de fórmula y gráfica combinada -->
+                <p class="text-center">
+                    <img src="{{ url_for('static', filename='img/formula_y_grafico_media.png') }}" alt="Fórmula y Gráfico del Método de la Media" class="img-fluid">
+                </p>
+                <p class="text-center">Gráfico y fórmula del Método de la Media, donde el pronóstico es el promedio de los valores históricos.</p>
+                
+                <!-- Aplicaciones -->
+                <p><strong>Aplicaciones del Método de la Media</strong></p>
+                <ul>
+                    <li>Se usa cuando los datos históricos son relativamente estables y no hay una tendencia o patrón estacional claro.</li>
+                    <li>Es adecuado para series temporales con fluctuaciones menores o datos sin tendencias notorias.</li>
+                    <li>Puede ser una referencia inicial antes de aplicar métodos más complejos como las medias móviles o suavización exponencial.</li>
+                </ul>
+  
+                <!-- Ventajas y Desventajas -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Ventajas</strong></p>
+                        <ul>
+                            <li>Fácil de calcular e interpretar.</li>
+                            <li>Útil cuando se requiere un pronóstico rápido.</li>
+                            <li>Suaviza variaciones pequeñas en los datos.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Desventajas</strong></p>
+                        <ul>
+                            <li>No considera tendencias ni cambios recientes.</li>
+                            <li>Inadecuado para datos con alta variabilidad o patrones estacionales.</li>
+                            <li>Sensible a valores atípicos que pueden distorsionar el promedio.</li>
+                        </ul>
+                    </div>
+                </div>
+  
+                <!-- Conclusión -->
+                <p><strong>Conclusión</strong></p>
+                <p>El <strong>Método de la Media</strong> es un enfoque básico que puede ser muy útil en situaciones donde los datos históricos son estables y predecibles. Sin embargo, para datos más complejos o con tendencias, es recomendable complementarlo con otros métodos más sofisticados, como las medias móviles o la suavización exponencial.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  

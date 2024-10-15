@@ -1,0 +1,162 @@
+/* Estilo general */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa; /* Fondo neutro y limpio */
+}
+
+/* Contenedor principal de la calculadora */
+.calculadora-container {
+    height: 100vh;
+    padding-top: 20px;
+}
+
+/* Título principal */
+.calculadora-titulo {
+    color: #1E3A8A; /* Azul oscuro principal */
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* Tarjetas de la calculadora */
+.calculadora-card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+/* Cabecera de las tarjetas */
+.calculadora-card-header {
+    background-color: #1E3A8A; /* Azul oscuro empresarial */
+    color: white;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 15px;
+}
+
+/* Inputs y formularios */
+.calculadora-input-group-text {
+    background-color: #1E3A8A !important; /* Reemplaza cualquier color celeste con azul oscuro */
+    border-color: #1E3A8A;
+}
+
+.calculadora-form-control {
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+}
+
+/* Botones */
+.btn-outline-primary {
+    border: 2px solid #1E3A8A; /* Azul empresarial */
+    color: #1E3A8A;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: #1E3A8A;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background-color: #198754;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #155d38;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Tablas */
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+.table-striped tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Resultados */
+.text-primary {
+    color: #1E3A8A !important; /* Cambia a azul empresarial */
+}
+
+.text-end h5 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+#graficoPronostico {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* Estilo del botón del ojo con animación de salto */
+.btn-eye {
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    color: #1E3A8A;
+    cursor: pointer;
+    animation: bounce 2s infinite; /* Animación continua */
+    transition: transform 0.3s ease;
+}
+
+/* Efecto hover para aumentar el tamaño */
+.btn-eye:hover {
+    transform: scale(1.2);
+}
+
+/* Definición de la animación de salto */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0); /* Posición inicial */
+    }
+    40% {
+        transform: translateY(-10px); /* Salto hacia arriba */
+    }
+    60% {
+        transform: translateY(-5px); /* Salto menor para suavizar */
+    }
+}
+/* Mano señalando al botón del ojo */
+.hand-pointer {
+    width: 40px;
+    height: auto;
+    animation: moveHand 1.5s infinite;
+    margin-left: 10px;
+}
+
+/* Animación de la mano */
+@keyframes moveHand {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-10px);
+    }
+}
+
+/* Estilo del botón del ojo */
+.btn-eye {
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    color: #1E3A8A;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.btn-eye:hover {
+    transform: scale(1.2);
+}

@@ -1,0 +1,73 @@
+<!-- Modal de Información: Método de la Deriva -->
+<div class="modal fade" id="modalInfo" tabindex="-1" aria-labelledby="modalInfoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg"> <!-- Modal más grande para acomodar mejor el contenido -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalInfoLabel">Método de la Deriva: Información Detallada</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Introducción -->
+                <p><strong>¿Qué es el Método de la Deriva?</strong></p>
+                <p>El <strong>Método de la Deriva</strong> es una técnica de pronóstico que asume que la tasa de cambio observada entre los datos históricos se mantendrá constante en el futuro. Este método proyecta los valores futuros sumando al último valor observado una tasa de crecimiento basada en la diferencia entre el primer y el último valor de la serie temporal, ajustada por el horizonte (h).</p>
+                
+                <!-- Imagen de fórmula y gráfica combinada -->
+                <p class="text-center">
+                    <img src="{{ url_for('static', filename='img/formula_y_grafico_deriva.png') }}" alt="Fórmula y Gráfico del Método de la Deriva" class="img-fluid">
+                </p>
+                <p class="text-center">Fórmula y gráfica del Método de la Deriva, proyectando la tendencia lineal futura con base en la serie histórica.</p>
+
+                <!-- Fórmula del Método de la Deriva -->
+                <p><strong>Fórmula del Método de la Deriva:</strong></p>
+                <p class="text-center">
+                    \[
+                    \text{Pronóstico} = y_{t-1} + h \times \frac{y_{t-1} - y_1}{T - 1}
+                    \]
+                    <br>
+                    Donde:
+                    <ul>
+                        <li>\( y_{t-1} \) es el valor del último período.</li>
+                        <li>\( y_1 \) es el valor del primer período.</li>
+                        <li>\( T \) es el número total de períodos.</li>
+                        <li>\( h \) es el horizonte, es decir, cuántos períodos en el futuro se desea predecir.</li>
+                    </ul>
+                </p>
+                
+                <!-- Aplicaciones -->
+                <p><strong>Aplicaciones del Método de la Deriva</strong></p>
+                <ul>
+                    <li>Es útil en datos que presentan una tendencia constante de crecimiento o decrecimiento.</li>
+                    <li>Se usa comúnmente en entornos de negocios como ventas o producción, donde se espera que la tendencia pasada continúe.</li>
+                    <li>Adecuado para proyecciones en series temporales con un crecimiento lineal constante.</li>
+                </ul>
+  
+                <!-- Ventajas y Desventajas -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Ventajas</strong></p>
+                        <ul>
+                            <li>Es sencillo de implementar cuando existe una tendencia clara en los datos.</li>
+                            <li>Ideal para datos históricos con patrones de crecimiento o decrecimiento constantes.</li>
+                            <li>Proporciona una extrapolación directa de la tendencia observada.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Desventajas</strong></p>
+                        <ul>
+                            <li>No es adecuado para datos con fluctuaciones estacionales o cíclicas.</li>
+                            <li>Sensible a valores atípicos o cambios bruscos en los datos históricos.</li>
+                            <li>Supone que la tendencia histórica se mantendrá en el futuro, lo cual no siempre es cierto.</li>
+                        </ul>
+                    </div>
+                </div>
+  
+                <!-- Conclusión -->
+                <p><strong>Conclusión</strong></p>
+                <p>El <strong>Método de la Deriva</strong> es ideal para series temporales que muestran un patrón de cambio constante. Sin embargo, debe aplicarse con cuidado en casos donde existan fluctuaciones importantes o donde la tendencia histórica no sea una guía fiable para el futuro. Es una técnica simple y útil cuando se trabaja con datos que muestran una tendencia lineal predecible.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

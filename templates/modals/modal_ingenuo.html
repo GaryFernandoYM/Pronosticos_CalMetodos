@@ -1,0 +1,58 @@
+<!-- modal_info.html -->
+
+<div class="modal fade" id="modalInfo" tabindex="-1" aria-labelledby="modalInfoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg"> <!-- Modal más grande para acomodar mejor el contenido -->
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="modalInfoLabel">Método Ingenuo: Información Detallada</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <!-- Introducción -->
+              <p><strong>¿Qué es el Método Ingenuo?</strong></p>
+              <p>El <strong>Método Ingenuo</strong> es una técnica de pronóstico simple, utilizada principalmente cuando no se dispone de mucha información histórica o se requiere una aproximación rápida. Este método asume que el pronóstico para el próximo período será igual al valor observado en el último período disponible.</p>
+              
+              <!-- Imagen de fórmula y gráfica combinada -->
+              <p class="text-center">
+                  <img src="{{ url_for('static', filename='img/formula_y_grafico_ingenuo.png') }}" alt="Fórmula y Gráfico del Método Ingenuo" class="img-fluid">
+              </p>
+              <p class="text-center">Gráfico y fórmula del Método Ingenuo, donde se asume que el pronóstico sigue el último valor observado.</p>
+              
+              <!-- Aplicaciones -->
+              <p><strong>Aplicaciones del Método Ingenuo</strong></p>
+              <ul>
+                  <li>Se utiliza en series de tiempo con fluctuaciones estacionales cuando no hay una tendencia clara.</li>
+                  <li>Es útil para comparaciones con otros métodos más avanzados.</li>
+                  <li>Ideal para situaciones en las que los datos históricos no muestran una tendencia significativa.</li>
+              </ul>
+
+              <!-- Ventajas y Desventajas -->
+              <div class="row">
+                  <div class="col-md-6">
+                      <p><strong>Ventajas</strong></p>
+                      <ul>
+                          <li>Simplicidad y rapidez de implementación.</li>
+                          <li>Ideal como referencia o línea base para otros métodos de pronóstico.</li>
+                          <li>No requiere cálculos complejos.</li>
+                      </ul>
+                  </div>
+                  <div class="col-md-6">
+                      <p><strong>Desventajas</strong></p>
+                      <ul>
+                          <li>No considera tendencias ni estacionalidades a largo plazo.</li>
+                          <li>Sensible a valores atípicos (outliers).</li>
+                          <li>Inadecuado para cambios drásticos o tendencias de crecimiento/decrecimiento.</li>
+                      </ul>
+                  </div>
+              </div>
+
+              <!-- Conclusión -->
+              <p><strong>Conclusión</strong></p>
+              <p>El <strong>Método Ingenuo</strong> es una técnica básica y rápida que puede utilizarse para obtener pronósticos sin la necesidad de cálculos complejos. Aunque su simplicidad puede ser limitante en algunas situaciones, es útil como una primera aproximación o referencia para modelos más avanzados.</p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+      </div>
+  </div>
+</div>

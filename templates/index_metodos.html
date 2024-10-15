@@ -1,0 +1,93 @@
+{% extends "admin_panel.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+<div class="container mt-5">
+    <h1 class="text-center mb-5" style="color: #1E3A8A;">Métodos de Pronóstico</h1>
+    <div class="row justify-content-center">
+
+        <!-- Card: Método Ingenuo -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card-modern" style="background: linear-gradient(135deg, #F96D00 0%, #FDB846 100%);">
+                <div class="card-content text-center">
+                    <div class="card-icon">
+                        <i class="fas fa-lightbulb fa-3x mb-3"></i>
+                    </div>
+                    <h5 class="card-title">Método Ingenuo</h5>
+                    <p class="card-text">Un método simple que utiliza el último valor como pronóstico del siguiente período.</p>
+                </div>
+                <div class="card-footer text-center">
+                    <span>Ver más</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Método Media Móvil -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card-modern" style="background: linear-gradient(135deg, #00B4DB 0%, #0083B0 100%);">
+                <div class="card-content text-center">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line fa-3x mb-3"></i>
+                    </div>
+                    <h5 class="card-title">Método Media Móvil</h5>
+                    <p class="card-text">Promedia los últimos valores de la serie para suavizar fluctuaciones.</p>
+                </div>
+                <div class="card-footer text-center">
+                    <span>Ver más</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Método Deriva -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card-modern" style="background: linear-gradient(135deg, #FFC837 0%, #FF8008 100%);">
+                <div class="card-content text-center">
+                    <div class="card-icon">
+                        <i class="fas fa-arrow-trend-up fa-3x mb-3"></i>
+                    </div>
+                    <h5 class="card-title">Método Deriva</h5>
+                    <p class="card-text">Basado en la tendencia observada de crecimiento o decrecimiento.</p>
+                </div>
+                <div class="card-footer text-center">
+                    <span>Ver más</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Método Ingenuo Estacional -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card-modern" style="background: linear-gradient(135deg, #A770EF 0%, #FDB99B 100%);">
+                <div class="card-content text-center">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-day fa-3x mb-3"></i>
+                    </div>
+                    <h5 class="card-title">Método Ingenuo Estacional</h5>
+                    <p class="card-text">Utiliza valores correspondientes al mismo período estacional.</p>
+                </div>
+                <div class="card-footer text-center">
+                    <span>Ver más</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card: Método Media Aritmética -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card-modern" style="background: linear-gradient(135deg, #42e695 0%, #3bb2b8 100%);">
+                <div class="card-content text-center">
+                    <div class="card-icon">
+                        <i class="fas fa-equals fa-3x mb-3"></i>
+                    </div>
+                    <h5 class="card-title">Método Media Aritmética</h5>
+                    <p class="card-text">El promedio de todos los valores históricos disponibles.</p>
+                </div>
+                <div class="card-footer text-center">
+                    <span>Ver más</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

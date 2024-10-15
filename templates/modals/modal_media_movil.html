@@ -1,0 +1,58 @@
+<!-- Modal de Información: Método de la Media Móvil Simple -->
+<div class="modal fade" id="modalInfo" tabindex="-1" aria-labelledby="modalInfoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg"> <!-- Modal más grande para acomodar mejor el contenido -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalInfoLabel">Método de la Media Móvil Simple: Información Detallada</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Introducción -->
+                <p><strong>¿Qué es el Método de la Media Móvil Simple?</strong></p>
+                <p>El <strong>Método de la Media Móvil Simple</strong> es una técnica de pronóstico utilizada para suavizar las fluctuaciones de corto plazo en series temporales. Se basa en calcular el promedio de los últimos "n" valores de la serie para predecir el siguiente valor. Este método es útil para identificar tendencias cuando no hay estacionalidad ni tendencia fuerte en los datos.</p>
+                
+                <!-- Imagen de fórmula y gráfica combinada -->
+                <p class="text-center">
+                    <img src="{{ url_for('static', filename='img/formula_y_grafico_media_movil.png') }}" alt="Fórmula y Gráfico del Método de la Media Móvil Simple" class="img-fluid">
+                </p>
+                <p class="text-center">Gráfico y fórmula del Método de la Media Móvil Simple, donde el pronóstico se basa en el promedio de los últimos valores observados.</p>
+                
+                <!-- Aplicaciones -->
+                <p><strong>Aplicaciones del Método de la Media Móvil Simple</strong></p>
+                <ul>
+                    <li>Es útil para series temporales sin tendencia o estacionalidad marcadas.</li>
+                    <li>Ideal para suavizar fluctuaciones en datos volátiles o erráticos.</li>
+                    <li>Se usa en ventas, producción y otras áreas donde los datos históricos no muestran un comportamiento estacional claro.</li>
+                </ul>
+  
+                <!-- Ventajas y Desventajas -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Ventajas</strong></p>
+                        <ul>
+                            <li>Fácil de entender e implementar.</li>
+                            <li>Suaviza las fluctuaciones a corto plazo en los datos.</li>
+                            <li>No requiere de grandes cantidades de datos históricos.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Desventajas</strong></p>
+                        <ul>
+                            <li>No capta tendencias a largo plazo ni estacionalidades.</li>
+                            <li>La elección del número de períodos ("n") puede ser arbitraria y afectar los resultados.</li>
+                            <li>Puede ser menos preciso para datos con tendencias crecientes o decrecientes.</li>
+                        </ul>
+                    </div>
+                </div>
+  
+                <!-- Conclusión -->
+                <p><strong>Conclusión</strong></p>
+                <p>El <strong>Método de la Media Móvil Simple</strong> es una técnica efectiva para suavizar series de tiempo y reducir el impacto de fluctuaciones erráticas. Es particularmente útil en escenarios donde los datos no tienen patrones estacionales evidentes ni tendencias fuertes. Sin embargo, su simplicidad puede limitar su efectividad en escenarios más complejos.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  

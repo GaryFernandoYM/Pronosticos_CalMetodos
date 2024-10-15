@@ -1,0 +1,58 @@
+<!-- Modal de Información: Método Ingenuo Estacional -->
+<div class="modal fade" id="modalInfo" tabindex="-1" aria-labelledby="modalInfoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg"> <!-- Modal más grande para acomodar mejor el contenido -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalInfoLabel">Método Ingenuo Estacional: Información Detallada</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Introducción -->
+                <p><strong>¿Qué es el Método Ingenuo Estacional?</strong></p>
+                <p>El <strong>Método Ingenuo Estacional</strong> es una técnica simple de pronóstico que se basa en suponer que el valor pronosticado para un período será igual al valor observado en el mismo período de la última temporada. Este método es útil cuando existe una estacionalidad clara en los datos, y se espera que los valores futuros repitan el mismo patrón estacional de años anteriores.</p>
+                
+                <!-- Imagen de fórmula y gráfica combinada -->
+                <p class="text-center">
+                    <img src="{{ url_for('static', filename='img/formula_y_grafico_ingenuo_estacional.png') }}" alt="Fórmula y Gráfico del Método Ingenuo Estacional" class="img-fluid">
+                </p>
+                <p class="text-center">Gráfico y fórmula del Método Ingenuo Estacional, donde el pronóstico se basa en replicar el valor del mismo período en temporadas pasadas.</p>
+                
+                <!-- Aplicaciones -->
+                <p><strong>Aplicaciones del Método Ingenuo Estacional</strong></p>
+                <ul>
+                    <li>Se utiliza cuando los datos muestran estacionalidad clara, como ventas que fluctúan según estaciones del año o períodos del calendario.</li>
+                    <li>Es útil en ventas de productos estacionales, turismo, agricultura, y cualquier industria con patrones estacionales repetitivos.</li>
+                    <li>Adecuado cuando no se dispone de un modelo más sofisticado pero se reconoce un patrón estacional en los datos históricos.</li>
+                </ul>
+  
+                <!-- Ventajas y Desventajas -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Ventajas</strong></p>
+                        <ul>
+                            <li>Muy fácil de implementar y comprender.</li>
+                            <li>Funciona bien cuando la estacionalidad es fuerte y predecible.</li>
+                            <li>No requiere cálculos complejos ni muchos datos históricos.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Desventajas</strong></p>
+                        <ul>
+                            <li>No tiene en cuenta tendencias ni cambios en los patrones de estacionalidad.</li>
+                            <li>Es ineficaz si los datos presentan tendencias a largo plazo o variaciones no estacionales.</li>
+                            <li>Sensible a cambios abruptos en los datos, como crisis o eventos extraordinarios que afecten el patrón estacional.</li>
+                        </ul>
+                    </div>
+                </div>
+  
+                <!-- Conclusión -->
+                <p><strong>Conclusión</strong></p>
+                <p>El <strong>Método Ingenuo Estacional</strong> es una opción simple y eficaz cuando los datos presentan un comportamiento estacional claro y repetitivo. Sin embargo, su simplicidad lo limita cuando hay tendencias a largo plazo o cambios en los patrones estacionales. Para datos más complejos, es recomendable complementarlo con métodos más avanzados.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,154 @@
+{% extends "admin_panel.html" %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/calculadora.css') }}">
+    <div class="container-fluid calculadora-container">
+        <div class="d-flex justify-content-start align-items-center mb-4">
+            <button type="button" class="btn btn-outline-primary btn-eye" data-bs-toggle="modal" data-bs-target="#modalInfo">
+                <i class="fas fa-eye"></i>
+            </button>
+            <img src="{{ url_for('static', filename='img/hand-point-left.png') }}" alt="Mano señalando" class="hand-pointer" />
+
+            <h1 class="calculadora-titulo ms-3">
+                Pronóstico por Método Ingenuo
+            </h1>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card calculadora-card">
+                    <div class="card-header calculadora-card-header text-center">
+                        <h3>Configurar número de períodos</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text text-white calculadora-input-group-text">Períodos</span>
+                                <input type="number" id="num_periodos" name="num_periodos" class="form-control" min="1" placeholder="5" required>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" name="generar_matriz" value="generar" class="btn btn-lg btn-outline-primary">Generar Matriz</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if matriz_generada %}
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-10">
+                    <div class="card calculadora-card">
+                        <div class="card-header text-white text-center calculadora-card-header">
+                            <h4>Ingresa los valores reales para cada período</h4>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST">
+                                <input type="hidden" name="num_periodos" value="{{ num_periodos }}">
+                                <table class="table table-striped table-hover text-center align-middle table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre del Período</th>
+                                            <th>Valor Real (AT)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for i in range(num_periodos) %}
+                                        <tr>
+                                            <td>
+                                                <div class="input-group">
+                                                    <span class="input-group-text text-white calculadora-input-group-text">Período</span>
+                                                    <input type="text" name="periodo_{{ i }}" placeholder="Ejemplo: Año {{ i+1 }}" class="form-control" required>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="number" name="valor_real_{{ i }}" placeholder="0" class="form-control" required>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+
+                                <!-- Campo para que el usuario ingrese el nombre del siguiente período -->
+                                <div class="input-group mt-4">
+                                    <span class="input-group-text text-white calculadora-input-group-text">Nombre del siguiente período</span>
+                                    <input type="text" name="nombre_siguiente_periodo" placeholder="Ejemplo: Año 4" class="form-control" required>
+                                </div>
+
+                                <div class="d-grid">
+                                    <button type="submit" name="calcular_pronostico" value="calcular" class="btn btn-lg btn-success mt-3">Calcular Pronóstico</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if resultados %}
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-12">
+                    <div class="card calculadora-card">
+                        <div class="card-header text-white text-center calculadora-card-header">
+                            <h4>Resultados del Pronóstico</h4>
+                        </div>
+
+                        <div class="card-body">
+                            <table class="table table-bordered table-hover text-center align-middle">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Nombre del Período</th>
+                                        <th>Valor Real (AT)</th>
+                                        <th>Pronóstico (FT)</th>
+                                        <th>Error (AT - FT)</th>
+                                        <th>Error Cuadrado (AT - FT)²</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for resultado in resultados %}
+                                    <tr>
+                                        <td>{{ resultado.periodo }}</td>
+                                        <td>{{ resultado.valor_real }}</td>
+                                        <td>{{ resultado.pronostico }}</td>
+                                        <td>{{ resultado.error }}</td>
+                                        <td>{{ resultado.error_cuadrado }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            <div class="text-center mt-4">
+                                <h5 class="text-primary">Pronóstico para el siguiente período ({{ nombre_siguiente_periodo }}): <strong>{{ pronostico_proximo_valor }}</strong></h5>
+                            </div>
+                            <div class="text-center mt-4">
+                                <button class="btn btn-primary" id="generarGrafico">Generar Gráfico</button>
+                            </div>
+                            <div class="text-center mt-4">
+                                <img id="graficoPronostico" src="" alt="Gráfico de Pronósticos" style="display:none;" />
+                            </div>
+                            <div class="text-end">
+                                <h5 class="text-dark">Total Error Cuadrado: <strong>{{ total_error_cuadrado }}</strong></h5>
+                                <h5 class="text-dark">Error Cuadrático Medio (ECM): <strong>{{ ecm }}</strong></h5>
+                                <h5 class="text-dark">Raíz del Error Cuadrático Medio (RECM): <strong>{{ recm }}</strong></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    {% include "modals/modal_ingenuo.html" %}
+
+    <script>
+        document.getElementById('generarGrafico').addEventListener('click', function() {
+            const grafico = document.getElementById('graficoPronostico');
+            grafico.src = "{{ url_for('graficar') }}"; // Llama a la ruta de graficar
+            grafico.style.display = 'block'; // Muestra el gráfico
+
+            // Manejo de error si el gráfico no se genera correctamente
+            grafico.onerror = function() {
+                alert("Hubo un problema al generar el gráfico. Por favor, intenta nuevamente.");
+            };
+        });
+    </script>
+{% endblock %}
