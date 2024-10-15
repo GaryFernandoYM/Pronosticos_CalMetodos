@@ -21,10 +21,27 @@ Antes de ejecutar la aplicación, asegúrate de tener instalados los siguientes 
 - Python 3.x
 - MySQL
 
-### Instalación de dependencias sin `requirements.txt`
+### Instalación de dependencias
 
 Puedes instalar manualmente cada una de las dependencias necesarias usando `pip`. Aquí tienes los comandos para instalar las librerías utilizadas en este proyecto:
+python3 -m venv .venv
+source .venv/bin/activate  # En Windows usa: .venv\Scripts\activate
 
+1. **Crear el .venv para el entorno virtual**:
+
+    ```bash
+    python3 -m venv .venv
+    ```
+1. **Activamos el entorno Virtual**:
+
+    ```bash
+    source .venv/bin/activate
+    ```
+    # En Windows usa: 
+    ```bash
+    .venv\Scripts\activate
+    ```
+    
 1. **Instalar Flask**:
 
     ```bash
@@ -61,18 +78,10 @@ Puedes instalar manualmente cada una de las dependencias necesarias usando `pip`
     pip install Jinja2
     ```
 
-### 1. Crear y activar un entorno virtual (opcional pero recomendado)
 
-Para mantener las dependencias del proyecto aisladas, es recomendable crear un entorno virtual. Si decides usar uno, puedes crear y activarlo con los siguientes comandos:
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate  # En Windows usa: .venv\Scripts\activate
-## Configuración de la Base de Datos
 
-Este proyecto utiliza MySQL como base de datos. A continuación se detallan los pasos para configurar la base de datos y ejecutar la aplicación.
-
-### 1. Crear la Base de Datos
+### Crear la Base de Datos
 
 Debes crear una base de datos en MySQL para almacenar la información de los usuarios. Ejecuta los siguientes comandos en tu cliente de MySQL:
 
@@ -92,26 +101,15 @@ Debes crear una base de datos en MySQL para almacenar la información de los usu
 
     ```sql
     CREATE TABLE users (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        username VARCHAR(100) NOT NULL UNIQUE,
-        password VARCHAR(255) NOT NULL
-    );
+    id int(11) NOT NULL,
+    username varchar(50) NOT NULL,
+    password varchar(255) NOT NULL,
+    created_at timestamp NOT NULL DEFAULT current_timestamp()
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
     ```
 
-### 2. Configurar la Conexión a la Base de Datos
+### 2. Levantar el Servidor Local
 
-En el código del proyecto, asegúrate de que las credenciales de la base de datos están correctamente configuradas en la función `crear_conexion()`. Aquí te mostramos un ejemplo de cómo hacerlo en `app.py`:
 
 ```python
-def crear_conexion():
-    try:
-        conexion = mysql.connector.connect(
-            host='localhost',   # Dirección del servidor MySQL (local en este caso)
-            user='root',        # Usuario de MySQL (ajústalo si es necesario)
-            password='',        # Contraseña del usuario (deja vacío si no tienes contraseña)
-            database='calculadoraBD'  # Nombre de la base de datos que acabas de crear
-        )
-        return conexion
-    except Error as e:
-        print(f"Error al conectar a la base de datos: {e}")
-        return None
+python app.py
