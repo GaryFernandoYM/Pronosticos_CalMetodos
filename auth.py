@@ -14,7 +14,7 @@ def crear_conexion():
             host='localhost',
             user='root',
             password='',  # Coloca tu contraseña de MySQL aquí
-            database='web_scraping_db'  # Asegúrate de que el nombre de tu base de datos sea correcto
+            database='calculadoraBD'  # Asegúrate de que el nombre de tu base de datos sea correcto
         )
         return conexion
     except Error as e:
