@@ -88,13 +88,13 @@ Debes crear una base de datos en MySQL para almacenar la información de los usu
 1. **Crea la base de datos:**
 
     ```sql
-    CREATE DATABASE calculadoraBD;
+    CREATE DATABASE calculadora;
     ```
 
 2. **Selecciona la base de datos que acabas de crear:**
 
     ```sql
-    USE calculadoraBD;
+    USE calculadora;
     ```
 
 3. **Crea la tabla `users` para gestionar el registro y autenticación de usuarios:**

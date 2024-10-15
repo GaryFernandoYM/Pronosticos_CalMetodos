@@ -31,7 +31,7 @@ def crear_conexion():
             host='localhost',
             user='root',
             password='',  # Coloca tu contraseña aquí si tienes una
-            database='calculadoraBD'  # Asegúrate de que el nombre de tu base de datos sea correcto
+            database='calculadora'  # Asegúrate de que el nombre de tu base de datos sea correcto
         )
         return conexion
     except Error as e:
